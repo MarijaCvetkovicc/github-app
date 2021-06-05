@@ -77,20 +77,23 @@ function UsersList(props) {
           <SearchHeader handeleKeyDown={(e) => handeleKeyDown(e)} handleOnChange={(e) => handleOnChange(e)} text={text} />
           <Container className={classes.cardGrid} maxWidth="md">
             <Grid container spacing={4}>
-              {error ?
-                <Warning text={error} /> :
-                (isLoading ?
-                  <Loader /> :
+              {isLoading ?
+                <Loader /> :
+
+                (error ?
+                  <Warning text={error} /> :
+
                   (users.length > 0 ? users.map((user) => (
                     <UserCard user={user} key={user.id} />
                   )
                   ) :
                     <Warning text={"There is no User with that username!"} />
                   ))}
+              {users.length > 0 && query !== "" && !isLoading  &&
+                <PagePagination page={page} count={(Math.round(count / 100)) < 10 ? Math.round(count / 100) : 10} handlePageChange={handlePageChange} />
+              }
             </Grid>
-            {users.length > 0 && query !== "" &&
-              <PagePagination page={page} count={(Math.round(count / 100)) < 10 ? Math.round(count / 100) : 10} handlePageChange={handlePageChange} />
-            }
+
           </Container>
         </div>
       </main>

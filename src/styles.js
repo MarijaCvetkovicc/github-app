@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
             },
         },
     },
-    link:{
+    link: {
         textDecoration: 'none'
     }
 }));

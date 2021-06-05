@@ -1,7 +1,7 @@
 import React from 'react';
 import FolderIcon from '@material-ui/icons/Folder';
 import useStyles from '../styles';
-import { List, ListItem, Container, ListItemIcon, ListItemText } from '@material-ui/core';
+import { List, ListItem, Container, ListItemIcon, ListItemText,Typography } from '@material-ui/core';
 import Loader from './Loader';
 import Alert from '@material-ui/lab/Alert';
 
@@ -18,7 +18,7 @@ const Repos = ({ isLoading, repos }) => {
                                     <FolderIcon />
                                 </ListItemIcon>
                                 <ListItemText
-                                    primary={repo.name}
+                                    primary={ <Typography noWrap gutterBottom varient="h6">{repo.name}</Typography>}
                                 />
                             </ListItem>
                         )) :
